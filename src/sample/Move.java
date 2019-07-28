@@ -1,11 +1,13 @@
 package sample;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.paint.Color;
 
 public class Move extends Thread{
 
     private int currentX;
     private int currentY;
+
     private int tickDelay;
 
     private String direction;
@@ -49,7 +51,16 @@ public class Move extends Thread{
 
 
     public void move(){
-
+        /*Prior to shifting snake into new location, the currentX and currentY (future) variables
+        are tested for whether it results in snake collision or reaching the point
+        */
+        if(snakeReached()){
+            try{
+                Thread.sleep(1000000);
+            }catch(InterruptedException e){
+                System.out.println("InterruptedException");
+            }
+        }
         //When green point is reached, additional coordinate is appended onto the chain
         if(pointReached()){
             display.addTailY(currentY);
@@ -77,6 +88,13 @@ public class Move extends Thread{
     public boolean pointReached(){
         if(currentX == display.getPointX() && currentY == display.getPointY()){
            return true;
+        }
+        return false;
+    }
+
+    public boolean snakeReached(){
+        if(display.getRectangle(currentY,currentX).getColor() == Color.YELLOW){
+            return true;
         }
         return false;
     }

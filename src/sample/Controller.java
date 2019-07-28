@@ -8,6 +8,7 @@ public class Controller {
     public String direction;
 
     public void onload(){
+        canvasId.onMouseReleasedProperty().setValue(null);
         direction = "";
         KeyHandler();
     }
@@ -43,6 +44,7 @@ public class Controller {
                         break;
                 }
         });
+
         move.start();
     }
 }

@@ -86,4 +86,7 @@ public class Display{
     public int getPointY() {
         return pointY;
     }
+    public DrawableRectangle getRectangle(int y, int x){
+        return grid.get(y).get(x);
+    }
 }
