@@ -48,7 +48,7 @@ public class Display{
         grid.get(tailY.get(0)).get(tailX.get(0)).setColor(Color.BLACK);
     }
 
-    public void display(){
+    public void refresh(){
         for(int i = 0; i < tailX.size(); i++){
             grid.get(tailY.get(i)).get(tailX.get(i)).setColor(Color.YELLOW);
         }
