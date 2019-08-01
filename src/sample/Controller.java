@@ -2,15 +2,20 @@ package sample;
 
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.stage.Stage;
 
 public class Controller {
     public Canvas canvasId;
     public String direction;
 
     public void onload(){
-        canvasId.onMouseReleasedProperty().setValue(null);
         direction = "";
         KeyHandler();
+    }
+
+    public void close(){
+        Stage stage = (Stage) canvasId.getScene().getWindow();
+        stage.close();
     }
 
     public void KeyHandler(){

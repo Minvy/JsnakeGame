@@ -128,4 +128,8 @@ public class Move extends Thread{
         }
         //refresh.gameOver();
     }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
 }
